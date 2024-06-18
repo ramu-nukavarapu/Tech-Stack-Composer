@@ -51,10 +51,9 @@ func (m model) View() string {
 	switch m.listInd[m.index] {
 	case "os":
 		options += "\n"
-		options += "OS\nThe OS is fixed to LINUX\n\npress enter to move next step"
+		options += "OS\nThe OS is fixed to LINUX\n"
 
 	case "server":
-		options += fmt.Sprintf("\n")
 		options += "Server\nYou can select any one of the servers given below\n\n"
 
 		for i, choice := range m.techList[m.listInd[m.index]] {
@@ -64,11 +63,8 @@ func (m model) View() string {
 			}
 			options += fmt.Sprintf("%s %s\n", cursor, choice)
 		}
-		options += "\nPress Enter to select an item and move to the next list\n"
-		options += "Press ESC to quit\n"
 
 	case "database":
-		options += fmt.Sprintf("\n")
 		options += "Database\nYou can select any one of the databases given below\n\n"
 		for i, choice := range m.techList[m.listInd[m.index]] {
 			cursor := " "
@@ -77,11 +73,8 @@ func (m model) View() string {
 			}
 			options += fmt.Sprintf("%s %s\n", cursor, choice)
 		}
-		options += "\nPress Enter to select an item and move to the next list\n"
-		options += "Press ESC to quit\n"
 
 	case "language":
-		options += fmt.Sprintf("\n")
 		options += "\nLanguage\nYou can select any one of the languages given below\n\n"
 		for i, choice := range m.techList[m.listInd[m.index]] {
 			cursor := " "
@@ -90,9 +83,10 @@ func (m model) View() string {
 			}
 			options += fmt.Sprintf("%s %s\n", cursor, choice)
 		}
-		options += "\nPress Enter to select an item and move to the next list\n"
-		options += "Press ESC to quit\n"
+
 	}
+	options += "\nPress Enter to select an item and move to the next list\n"
+	options += "Press ESC to quit\n"
 
 	return options
 }
