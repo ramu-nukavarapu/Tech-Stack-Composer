@@ -45,15 +45,17 @@ func (m model) View() string {
 		output += "\npress ESC to quit"
 		return output
 	}
-	options := ""
+	var options string
+	options += "Welcome to tech-stack composer for your project\n\n"
+	options += "The tech-stack contains the following components\n-> OS\n-> Server\n-> Database\n-> Language\n"
 	switch m.listInd[m.index] {
 	case "os":
-		options += "Welcome to tech-stack composer for your project\n\n"
-		options += "The tech-stack contains the following components\n-> OS\n-> Server\n-> Database\n-> Language\n\n"
+		options += "\n"
 		options += "OS\nThe OS is fixed to LINUX\n\npress enter to move next step"
 
 	case "server":
-		options += "\nServer\nYou can select any one of the servers given below\n\n"
+		options += fmt.Sprintf("\n")
+		options += "Server\nYou can select any one of the servers given below\n\n"
 
 		for i, choice := range m.techList[m.listInd[m.index]] {
 			cursor := " "
@@ -66,7 +68,8 @@ func (m model) View() string {
 		options += "Press ESC to quit\n"
 
 	case "database":
-		options += "\nDatabase\nYou can select any one of the databases given below\n\n"
+		options += fmt.Sprintf("\n")
+		options += "Database\nYou can select any one of the databases given below\n\n"
 		for i, choice := range m.techList[m.listInd[m.index]] {
 			cursor := " "
 			if m.cursor == i {
@@ -78,6 +81,7 @@ func (m model) View() string {
 		options += "Press ESC to quit\n"
 
 	case "language":
+		options += fmt.Sprintf("\n")
 		options += "\nLanguage\nYou can select any one of the languages given below\n\n"
 		for i, choice := range m.techList[m.listInd[m.index]] {
 			cursor := " "
