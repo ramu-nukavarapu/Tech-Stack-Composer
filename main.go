@@ -46,6 +46,7 @@ func (m model) View() string {
 		return output
 	}
 	var options string
+	options = ""
 	options += "Welcome to tech-stack composer for your project\n\n"
 	options += "The tech-stack contains the following components\n-> OS\n-> Server\n-> Database\n-> Language\n"
 	switch m.listInd[m.index] {
@@ -54,6 +55,7 @@ func (m model) View() string {
 		options += "OS\nThe OS is fixed to LINUX\n"
 
 	case "server":
+		options = ""
 		options += "Server\nYou can select any one of the servers given below\n\n"
 
 		for i, choice := range m.techList[m.listInd[m.index]] {
@@ -65,6 +67,7 @@ func (m model) View() string {
 		}
 
 	case "database":
+		options = ""
 		options += "Database\nYou can select any one of the databases given below\n\n"
 		for i, choice := range m.techList[m.listInd[m.index]] {
 			cursor := " "
@@ -75,6 +78,7 @@ func (m model) View() string {
 		}
 
 	case "language":
+		options = ""
 		options += "\nLanguage\nYou can select any one of the languages given below\n\n"
 		for i, choice := range m.techList[m.listInd[m.index]] {
 			cursor := " "
